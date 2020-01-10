@@ -1,32 +1,44 @@
 Project 0 - Week 1 Worksheet
 Using vim to on the command line to demonstrate knowledge from week 1.
 
+
 Professionalism
 1. How do you plan on exhibiting professionalism at Techtonica? What would be different in a full-time engineering job setting?
+At Techtonica, I will arrive on time and complete my assignments on time. If I know I will be absent or running late, I will notify my colleagues as soon as I am aware. I will treat everyone respectfully.
+General professionalism will apply in a full-time engineering job setting. Depending on the company, they may have different expectations. It will be important to communicate with the team and understand how things are done there.
 
 2. What would you do if you just found out you are going to be an hour late tomorrow morning?
+I will notify affected colleagues once I find out I will be running late and let them know the time I will be arriving.
 
 3. What would you do if you realized that you only had time to finish most of your work by the due date of a group project?
+I would let my team know immediately. That way we can come up with a plan on how to get the rest of the project done (ie. whether work needs to be delegated to others).
 
 
 Learning How to Learn
 4. Knowing yourself, what are the most effective ways for you to learn and retain new information?
+I mainly a visual learner although adding auditory and tactile aspects definitely helps. When learning about a new concept/idea for the first time, I like to see what's going and take notes. To make sure I understand what I learned, I need to be able to verbalize my thoughts and explain it to another person.
 
 5. What is growth mindset?
+Growth and fixed mindsets describe the underlying beliefs people have about learning and intelligence. In a growth mindset, people believe that their abilities can be developed through hard work and dedication. This view creates a resilience that is essential for learning and accomplishment.
 
-
+ 
 Operating Systems:
 6. Which operating system are you using right now? Name two other popular operating systems.
+The operating system I am using right now is macOS. Two other popular operating systems include Windows and Linux.
 
 7. Why do computers need operating systems?
+Computers need operating systems because it manages the computers processes, files, memory, and devices. It is the middle layer between the hardware and the software installed on it. It schedules tasks, executes applications and controls peripheral devices including printers, mouse, keyboard, etc.
 
 
 Asking Good Questions and Networking
 8. Explain what you would do if you felt stuck on a coding problem.
+If I felt stuck on a problem, I would first make sure that I understand what the problem is asking (asking someone if applicable in that situation.) After I try to work on the problem by myself, I would ask someone for help. First I would explain to them the problem I am trying to solve and what I have done. Depending on if I have worked with this person before, I may also tell them a bit about my learning style.
 
 9. Describe the ways you plan on meeting and staying connected with new people in tech this month.
+I plan to attend some tech events on topics I am interested in. At these events, I will aim to meet at least one person and connect with them. From there, if there are additional events I find in the future, I can invite them as well.
 
 10. Describe some examples of effective body language and what is communicated when they are used well.
+An example of effective body language is 
 
 11. Describe some examples of effective word choice and what is communicated when they are used well.
 
