@@ -1,0 +1,102 @@
+<html>
+<body>
+	Animals:
+	<ol id="ol1">
+		<li>Frog</li>
+		<li>Dog</li>
+		<li>Bunny</li>
+	</ol>
+
+	<div id="id1">
+		<p>This is the text in div id1</p>
+		<p>Hope you enjoy my HTML</p>
+	</div>
+
+	<p id="id2">Here's some text in a paragraph</p>
+
+	<div class="myClass">
+		I love learning about HTML and JavaScript
+	</div>
+
+	<p class="myClass">
+		Coding is fun
+	</p>
+
+	<button id="button1">Button 1</button>
+	<br/><br/>
+	<button id="button2">Button 2</button>
+</body>
+
+<script type="text/javascript">
+	// Exercise 1: Select the element with id "id2" and change the text inside it to "Here's some new text"
+	const id2 = document.getElementById('id2');
+	id2.innerHTML = "<p>Here's some new text</p>";
+		
+	// Exercise 2: Select the element with id "id1" and make the text inside it green.
+	const id1 = document.getElementById('id1');
+	id1.style.color = 'green'    
+		
+		
+	// Exercise 3: Select the elements that have the class "myClass". console.log the output.
+	const myClassElements = document.getElementsByClassName("myClass"); 
+	console.log(myClassElements);
+
+	// Exercise 4: Select the children of the element with id "id1". console.log the output.
+	console.log(id1.children);    
+
+	for (let i = 0; i < id1.children.length; i++) {
+	console.log(id1.children[i]);   
+	}    
+		
+	// Exercise 5: Select all list items on the page. console.log the output.
+	const listElements = document.getElementsByTagName('li');
+	// console.log(listElements);
+	for (let i = 0; i < listElements.length; i++) {
+	console.log(listElements[i].innerText);   
+	}
+		
+	// Exercise 6: Use JavaScript to find the *number* of list items on the page. console.log the output.
+	console.log(listElements.length);    
+		
+	// Exercise 7: Using JavaScript, create a list item and add it to the end of the ordered list.
+	const currentOl = document.getElementById("ol1"); 
+	let cow = document.createElement('li');
+	cow.textContent = "Cow";
+	currentOl.appendChild(cow);
+
+		
+	// Exercise 8: Using JavaScript, make it so that when button1 is clicked, 
+	// an alert pops up saying "Hi from Techtonica".
+	const button1 = document.getElementById("button1");
+	button1.addEventListener('click', () => {
+	alert("Hi from Techtonica");
+	});
+		
+		
+	// Exercise 9: In your own words, write a few sentences explaining what the DOM is. Write your answer in a comment below:
+	// The DOM stands for Document Object Model. It is a representation of a webpage that JavaScript can use. JavaScript can use the DOM to naviage and modify a website by selecting elements, reading/changing elements, and responding to user events. 
+		
+	// The next two exercises combine the DOM with other JavaScript you've learned. Try them for an extra challenge!
+	// Exercise 10: Select the elements with the class "myClass" and update the text inside each of them to end with "!"
+	// Hint: To operate on multiple elements, you can use a loop.
+	for (let i = 0; i < myClassElements.length; i++) {
+		myClassElements[i].innerHTML = myClassElements[i].innerHTML + '!';    
+	}
+		
+	// Exercise 11: Make it so when the button2 is clicked, 
+	// the children of the element with id "id1" each have their text replaced with a random number 1-100
+	console.log(id1.children);
+	console.log(document.getElementById('id1'));
+	button2.addEventListener('click', () => {
+	for (let i = 0; i < id1.children.length; i++) {
+		id1.children[i].innerHTML = Math.floor(Math.random() * 101);
+	}
+	});
+		
+	// How was this exercise (easy, hard, fun, confusing)?
+	// What references did you use to help?
+	// Please put your answers in a comment below:
+	// This assignment was harder than the first 3 since I did not know about the DOM and how Javascript relates to it. I used the Treehouse videos to learn about the DOM which is helpful although given that it is a lot of new information, I used other online resources such as MDN to familiarize myself with the new syntax.
+</script>
+
+</html>
