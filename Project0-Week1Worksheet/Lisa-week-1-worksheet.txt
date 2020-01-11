@@ -63,8 +63,8 @@ That ISP connects many devices around the world through many networks. Each devi
 These devices communicate using wifi.
 
 17. How can we send data reliably even if the network is unreliable?
-Routers act like traffic managers to keep IP packets moving through networks. E
-ven if one path is congested, individual packets can travel through different routes through the internet and arrive at the device out of order but can be reassembled in order. 
+Routers act like traffic managers to keep IP packets moving through networks. 
+Even if one path is congested, individual packets can travel through different routes through the internet and arrive at the device out of order but can be reassembled in order. 
 However there is  The more routers there are, the more reliable the network. 
 
 -----
