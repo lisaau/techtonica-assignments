@@ -4,8 +4,11 @@ body {
 
 h1 {
   color: #d75f28;
+  font-family: 'Mali', cursive;
+  font-size: 60px;
 }
 
 .heading {
   color: #1b68b6;
+  font-family: 'Amatic SC', cursive;
 }
