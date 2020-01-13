@@ -12,3 +12,7 @@ h1 {
   color: #1b68b6;
   font-family: 'Amatic SC', cursive;
 }
+
+.description {
+  width: 600px;
+}
