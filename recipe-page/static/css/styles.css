@@ -8,9 +8,24 @@ h1 {
   font-size: 60px;
 }
 
+p {
+  font-family: 'Mali', cursive;
+}
+
+li{
+  font-family: 'Mali', cursive;
+  margin-top: 0;
+}
+
+.list {
+  margin-top: 0px
+}
+
 .heading {
   color: #1b68b6;
   font-family: 'Amatic SC', cursive;
+  font-size: 30px;
+  margin-bottom: 0px;
 }
 
 .description {
@@ -34,3 +49,11 @@ h1 {
   float: right;
 }
 
+#img-footer {
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+#notes-margin {
+  margin-top: 0px;
+}
