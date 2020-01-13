@@ -6,6 +6,7 @@ h1 {
   color: #d75f28;
   font-family: 'Mali', cursive;
   font-size: 60px;
+  margin-left: 30px;
 }
 
 p {
@@ -30,6 +31,7 @@ li{
 
 .description {
   width: 600px;
+  margin-left: 30px;
 }
 
 .left {
@@ -37,6 +39,7 @@ li{
   margin-top: 20px;
   display: inline-block;
   float: left;
+  margin-left: 30px;
 }
 
 .right {
@@ -44,7 +47,6 @@ li{
   margin-left: 30px;
   margin-right: 50px;
   display: inline-block;
-  float: right;
 }
 
 #img-footer {
