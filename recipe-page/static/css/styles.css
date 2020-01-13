@@ -19,14 +19,18 @@ h1 {
 
 .left {
   width: 600px;
-  float: left;
+  height: 100%;
   margin-top: 20px;
+  display: inline-block;
+  float: left;
 }
 
 .right {
   width: 600px;
-  float: right;
+  height: 100%;
   margin-left: 30px;
   margin-right: 50px;
+  display: inline-block;
+  float: right;
 }
 
