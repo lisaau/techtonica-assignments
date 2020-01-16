@@ -1,0 +1,48 @@
+img {
+    width: 32%
+}
+
+.cred {
+    color: darkgrey;
+}
+
+/* widths 0 - 1080 have a default white background
+widths 1081-1199 have a red background
+1200 and over has a green background, since this style starts to override the red rule after 1200px. */
+
+@media (max-width: 1080px) {
+    img {
+	    width: 100%;
+    }
+}
+
+@media (min-width: 1081px) {
+    body {
+	    background-color: red;
+    }
+}
+
+@media (min-width: 1200px) {
+    body {
+        background-color: green;
+    }
+}
+
+@media (min-width: 600px) {
+    .test1 {
+	    color: coral;
+    }
+}
+
+@media all and (min-width: 700px) {
+    .test2 {
+	    color: cornflowerblue;
+    }
+}
+
+@media all and (min-width: 900px) {
+    .cred {
+        color: chartreuse;
+        text-align: center;
+    }
+}
