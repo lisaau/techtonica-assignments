@@ -15,7 +15,7 @@ Phase 3 of the project involves incorporating Bootstrap. You'll add a navigation
 To run the files locally, clone the repo by using
 
 ```
-git clone https://github.com/lisaai/recipe-page.git
+git clone https://github.com/lisaau/recipe-page.git
 cd recipe-page
 ```
 
