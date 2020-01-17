@@ -8,11 +8,11 @@
 function range(start, end, step = start < end ? 1 : -1) {
     const rangeArray = [];
 
-    if (step > 0) {
+    if (step > 0) { // increment version
         for (let i = start; i <= end; i += step) {
             rangeArray.push(i);
         }
-    } else { 
+    } else { // decrement version
         for (let i = start; i >= end; i += step) {
             rangeArray.push(i);
         }
@@ -66,11 +66,19 @@ function reverseArrayInPlace2(arr) {
 // If you haven’t already, also write a recursive version of nth.
 
 function arrayToList(arr) {
-    let list = {value, rest: list}
+    let list = null;
+    for (i = arr.length - 1; i >= 0; i--) {
+        list = {value: arr[i], rest: list}
+    }
+    return list;
 }
 
 function listToArray(li) {
-
+    let arr = [];
+    for (let obj of li) {
+        arr.push(obj.value);
+    }
+    return arr;
 }
 
 function prepend(arr, li) {
