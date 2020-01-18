@@ -43,10 +43,6 @@ function reverseArray(arr) {
 }
 
 function reverseArrayInPlace(arr) {
-    return reverseArray(arr);
-}
-
-function reverseArrayInPlace2(arr) {
     // iterate over half the array
     for (let i =0; i < Math.floor(arr.length / 2); i++) {
         let startNum = arr[i];
@@ -73,16 +69,42 @@ function arrayToList(arr) {
     return list;
 }
 
-function listToArray(li) {
+function listToArray(
+    
+) {
     let arr = [];
-    for (let obj of li) {
+    // starting at the list, increment "up"/"deeper" by accessing rest within the list we are looking at, end when there are no more nested objects
+    for (let obj = li; obj !== null; obj = obj.rest) {
         arr.push(obj.value);
     }
     return arr;
 }
 
-function prepend(arr, li) {
+// Adds element as a value and list as rest
+function prepend(value, li) {
+    return {value, rest: li};
+}
 
+function nth(li, n) {
+    if (!li) return undefined;
+
+    // jump to next list item n times
+    for (let i = 0; i < n; i++) {
+        li = li.rest;
+        if (li === null) return "ERROR: List does not have that many objects"
+    }
+
+    return li.value;
+}
+
+function nth(li, n) {
+    // if there isn't a list (ie. most inner object/node)
+    if (!li) 
+        return undefined;
+    else if(n === 0) 
+        return li.value;
+    else 
+        return nth(li.rest, n - 1);
 }
 
 // Deep comparison
@@ -91,29 +113,32 @@ function prepend(arr, li) {
 // To find out whether values should be compared directly (use the === operator for that) or have their properties compared, you can use the typeof operator. If it produces "object" for both values, you should do a deep comparison. But you have to take one silly exception into account: because of a historical accident, typeof null also produces "object".
 // The Object.keys function will be useful when you need to go over the properties of objects to compare them.
 
-function deepEqual(val1, val2) {
-    // edge cases: null and when both arguments are objects
-    // if (val1 != null || typeof val1 != 'object') return va1 === val2;
-    // if (val2 != null || typeof val2 != 'object') return va1 === val2;
 
-    // see if both objects have same number of properties
-    if (Object.keys(val1).length === Object.keys(val2).length) {
-        // check is keys in val1 are in val 2
-        let keys = Object.keys(val1);
-        console.log(keys);
-        for (let key in keys) {
-            // check if val associated with key in val 1 is same as value associated iwth key in val 2
-            // if (typeof val1.key === 'object') { //check if value is an object
-                console.log(val1.key);
-                console.log(val2.key);
-                return true;
-            } else {
-                return false;
-            }
-        }
-    } else {
-        return false;
+function deepEqual(x, y) {
+    // check if arguments are the same type (===)
+    if (x === y) return true;
+    
+    // for both x and y: check for nulls (shouldn't be objects) if they're different type
+    // check if type is not object
+    // return false for these
+    if (x === null || y === null || typeof x !== 'object' || typeof y !== 'object') return false;
+
+    // check keys:
+    let xKeys = Object.keys(x);
+    let yKeys = Object.keys(y);
+    // compare length of array of keys in object 1 and 2. return false if different length
+    if (xKeys.length !== yKeys.length) return false;
+
+    // check if the keys are the same
+    for (let key of xKeys) {
+        if (!yKeys.includes(key)) return false
     }
-}
 
- 
+    // check values: loop through object 1's keys
+    for (let key of xKeys) {
+        // compare with values at key of object 1 with object 2 using deepEqual
+        // return false if deepEqual returns a false
+        if (!deepEqual(x[key], y[key]) return false;
+    }
+    return true
+}
