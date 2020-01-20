@@ -68,9 +68,22 @@ console.log(every([], n => n < 10));
 // assuming we have the dataset of scripts defined in Unicode
 function dominantDirection(text) {
   // count characters by criterion based on characterScript
-  // filter out results that are script-less characters
-  // find the highest character count of text using reduce method
-  // find the direction of that script
+  let counted = countBy(text, char => {
+    // find the script of each character we are looking at
+    let script = characterScript(char.codePointAt(0));
+    
+    // tally the number of characters of a certain direction
+    return script ? script.direction : "none";
+  }).filter(({name}) => name != "none");
+
+  // if there's no direction, return ltr
+  if (counted === 0) return "ltr";
+
+  // use reduce method to reduce to single object to find direction of the highest count. {name: direction, count: number of characters that are in that direction}
+  let totalCount = counted.reduce((script1, scipt2) => script1.count > script2.count ? script1 : script2);
+
+  // return direction
+  return totalCount.name;
 }
 
 console.log(dominantDirection("Hello!"));
@@ -78,38 +91,38 @@ console.log(dominantDirection("Hello!"));
 console.log(dominantDirection("Hey, مساء الخير"));
 // → rtl
 
-function countBy(items, groupName) {
-  let counts = [];
-  for (let item of items) {
-    let name = groupName(item);
-    let known = counts.findIndex(c => c.name == name);
-    if (known == -1) {
-      counts.push({name, count: 1});
-    } else {
-      counts[known].count++;
-    }
-  }
-  return counts;
-}
+// function countBy(items, groupName) {
+//   let counts = [];
+//   for (let item of items) {
+//     let name = groupName(item);
+//     let known = counts.findIndex(c => c.name == name);
+//     if (known == -1) {
+//       counts.push({name, count: 1});
+//     } else {
+//       counts[known].count++;
+//     }
+//   }
+//   return counts;
+// }
 
-function characterScript(code) {
-  for (let script of SCRIPTS) {
-    if (script.ranges.some(([from, to]) => {
-      return code >= from && code < to;
-    })) {
-      return script;
-    }
-  }
-  return null;
-}
+// function characterScript(code) {
+//   for (let script of SCRIPTS) {
+//     if (script.ranges.some(([from, to]) => {
+//       return code >= from && code < to;
+//     })) {
+//       return script;
+//     }
+//   }
+//   return null;
+// }
 
 
-function textScripts(text) {
-  let scripts = countBy(text, char => {
-    let script = characterScript(char.codePointAt(0));
-    return script ? script.name : "none";
-  }).filter(({name}) => name != "none");
+// function textScripts(text) {
+//   let scripts = countBy(text, char => {
+//     let script = characterScript(char.codePointAt(0));
+//     return script ? script.name : "none";
+//   }).filter(({name}) => name != "none");
 
-  let total = scripts.reduce((n, {count}) => n + count, 0);
-  if (total == 0) return "No scripts found";
-}
+//   let total = scripts.reduce((n, {count}) => n + count, 0);
+//   if (total == 0) return "No scripts found";
+// }
