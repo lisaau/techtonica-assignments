@@ -28,8 +28,81 @@ class Vec {
 // Use the === operator, or something equivalent such as indexOf, to determine whether two values are the same.
 // Give the class a static from method that takes an iterable object as argument and creates a group that contains all the values produced by iterating over it.
 
+class Group {
+    constructor(){
+        this.collection = [];
+    }
+    
+    // add value if it isn't already in the collection
+    add(value){
+        if(!this.has(value)) {
+            this.collection.push(value);
+        }
+    }
+
+    // reassign collection to an array with value excluded
+    delete(value){
+        this.collection = this.collection.filter(val => val !== value)
+    }
+
+    // use includes array method to return boolean of whether collection has the value
+    has(value){
+        return this.collection.includes(value);
+    }
+
+    static from(collection) {
+        let newGroup = new Group();
+        for (let value of collection) {
+            newGroup.add(value);
+        }
+        return newGroup;
+    }
+}
+
+let group = Group.from([10, 20]);
+console.log(group.has(10));
+// → true
+console.log(group.has(30));
+// → false
+group.add(10);
+group.delete(10);
+console.log(group.has(10));
+// → false
+
 // Iterable groups
 // Make the Group class from the previous exercise iterable. Refer to the section about the iterator interface earlier in the chapter if you aren’t clear on the exact form of the interface anymore.
+
+class GroupIterator {
+    constructor(group) {
+      this.group = group;
+      this.position = 0;
+    }
+    
+    // if we reach the end of the array in group, done = true, otherwise, value is the item we are on in the array in the group. move position up one
+    next() {
+      if (this.position >= this.group.collection.length) {
+        return {done: true};
+      } else {
+          let result = {
+              value: this.group.collection[this.position],
+              done: false,
+          }
+          this.position++;
+          return result;
+      }
+    }
+}
+  
+Group.prototype[Symbol.iterator] = function() {
+    return new GroupIterator(this);
+};
+
+for (let value of Group.from(["a", "b", "c"])) {
+    console.log(value);
+}
+// → a
+// → b
+// → c
 
 // Borrowing a method
 // Earlier in the chapter I mentioned that an object’s hasOwnProperty can be used as a more robust alternative to the in operator when you want to ignore the prototype’s properties. But what if your map needs to include the word "hasOwnProperty"? You won’t be able to call that method anymore because the object’s own property hides the method value.
