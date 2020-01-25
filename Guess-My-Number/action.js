@@ -1,19 +1,17 @@
-
-// Track numbers the user already guess and displays them
-
-// Lets the user choose the range of the secret number
-
-
-let answer = 1; // Math.floor(Math.random() * 10); // Randomly generated number and logic to determine if guess is right
 let previousGuessTracker = [];
-let totalGuesses = 0; 
 
 $(document).ready(() => {
+    const answer = Math.floor(Math.random() * 10); // Randomly generated number and logic to determine if guess is right
     // Allow user to click enter in addition to pressing submit button to provide a guess
     $('#users-guess').on('keypress', (e) => {
         if(e.keyCode === 13) {
             $('#submit').click();
         }
+    })
+
+    // Click reset button to reload the game
+    $('button').on('click', () => {
+        location.reload(true);
     })
 
     $('#submit').on('click', () => {
@@ -22,8 +20,9 @@ $(document).ready(() => {
 
         // Handle guess logic
         if(guessNum === answer) {
-            $('#previous-guesses').empty();
-            $('#announcement').html(`${guessNum} is correct!`);
+            //$('#previous-guesses').hide();
+            $('#announcement').html(`${guessNum} is correct! Press "reset" button to play again.`);
+
         } else {
             // Tells the user to guess higher or lower
             if (guessNum < answer) {
