@@ -1,9 +1,10 @@
 $(document).ready(() => {
     class Event {
-        constructor(name, description) {
+        constructor(name, description, date) {
             this.name = name;
             this.description = description;
-            this.availableTickets = []
+            this.availableTickets = [];
+            this.eventDate = date;
         };
         
         // creates ticket type for events by adding name of ticket type and price
@@ -13,6 +14,7 @@ $(document).ready(() => {
             this.availableTickets.push(new TicketType(name, price));
         }
         
+        // displays all tickets in availableTickets
         allTickets() {
             let name;
             let price;
@@ -28,15 +30,18 @@ $(document).ready(() => {
     
         // take in two values (to specify the lower and upper bounds of a price range), and return a list of ticket types available
         searchTickets(lower, upper) {
+            if (upper < 0 || lower < 0) {
+                return "Please provide a whole number"
+            }
+
             let applicableTickets = [];
             let applicableTicketsMessage = '';
             for (let i = 0; i < this.availableTickets.length; i++) {
                 let name = this.availableTickets[i].name;
                 let price = this.availableTickets[i].price;
-                if (price > lower && price < upper) {
-                    // console.log(this.availableTickets[i]);
+                if (price >= lower && price <= upper) {
                     applicableTickets.push(this.availableTickets[i])
-                    applicableTicketsMessage += ` ${i}. ${name} ($${price})`;
+                    applicableTicketsMessage += ` ${applicableTickets.length}. ${name} ($${price})`; // to get correct sequential order
                 }
             }
             if (applicableTickets.length === 0 ) {
@@ -55,12 +60,13 @@ $(document).ready(() => {
     }
         
     
-    const eventObj1 = new Event("KLOS Golden Gala", "An evening with hollywood vampires");
-    const eventObj2 = new Event("Skillet & Sevendust", "Victorious war tour");
-    const eventObj3 = new Event("Jenny Lewis", "On the line tour 2019");
+    // initialize the event objects that'll be displayed
+    const eventObj1 = new Event("KLOS Golden Gala", "An evening with hollywood vampires", new Date(2020, 02, 04));
+    const eventObj2 = new Event("Skillet & Sevendust", "Victorious war tour", new Date(2020, 10, 22));
+    const eventObj3 = new Event("Jenny Lewis", "On the line tour 2019", new Date(2021, 07, 14));
     
     
-    
+    // add the tickets for each event
     eventObj1.addAvailableTickets("human", 299);
     eventObj1.addAvailableTickets("vampire", 99);
     
@@ -79,9 +85,13 @@ $(document).ready(() => {
     // load available events into HTML
     let html = '';
     $.each(eventArray, (index, item) => {
+        // displays all tickets
         // html += `<li>${item.name} - ${item.description} - All Tickets: ${item.allTickets()}</li>`;
-        html += `<li>${item.name} - ${item.description} - Eligible tickets: ${item.searchTickets(0,100)}</li>`;
+
+        // displays tickets within a range
+        html += `<li>${item.name} - ${item.description} - ${moment(item.eventDate).format('MMMM Do YYYY')} - Eligible tickets: ${item.searchTickets(0,100)}</li>`;
     });
     // insert final html into #event
     $("#event").html(html);
 })
+
