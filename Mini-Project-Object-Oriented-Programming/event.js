@@ -78,20 +78,48 @@ $(document).ready(() => {
     eventObj3.addAvailableTickets("Balcony", 100)
     
 
+    // All of the events
     const eventArray = new Array();
     // pushing multiple objects to an array at once
     eventArray.push(eventObj1, eventObj2, eventObj3);
 
-    // load available events into HTML
+
+    // Render all events 
     let html = '';
     $.each(eventArray, (index, item) => {
         // displays all tickets
-        // html += `<li>${item.name} - ${item.description} - All Tickets: ${item.allTickets()}</li>`;
-
-        // displays tickets within a range
-        html += `<li>${item.name} - ${item.description} - ${moment(item.eventDate).format('MMMM Do YYYY')} - Eligible tickets: ${item.searchTickets(0,100)}</li>`;
+        html += `<li>${item.name} - ${item.description} - All Tickets: ${item.allTickets()}</li>`;
     });
-    // insert final html into #event
     $("#event").html(html);
+
+
+    // Rendering the events with the tickets that are within the range that the user inputs
+    function renderFilteredEvents(low, high) {
+        let html = '';
+        $.each(eventArray, (index, item) => {
+            html += `<li>${item.name} - ${item.description} - ${moment(item.eventDate).format('MMMM Do YYYY')} - Eligible tickets: ${item.searchTickets(low, high)}</li>`;     
+        });
+        $("#event").html(html);
+    }
+
+    $('#submit').on('click', () => {
+        let low = $('#lowerBound').val(); // selects input elements of type="text"
+        let lowNum = parseInt(low);
+        let high = $('#upperBound').val(); // selects input elements of type="text"
+        let highNum = parseInt(high);
+        renderFilteredEvents(lowNum, highNum);
+    })
+
+
+    // Render all events if user clicks reset by refreshing the page
+    $('#reset').on('click', () => {
+        location.reload(true);
+    })
+
+    $('input:text').on('keypress', (e) => {
+        if(e.keyCode === 13) {
+            $('#submit').click();
+        }
+    })
 })
 
