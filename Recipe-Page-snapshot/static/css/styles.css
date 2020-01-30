@@ -1,0 +1,100 @@
+body {
+  background-color: #e1ddce;
+  width: 100%;
+}
+
+h1 {
+color: #d75f28;
+font-family: 'Mali', cursive;
+font-size: 60px;
+margin-left: 30px;
+margin-right: 30px;
+}
+
+p {
+font-family: 'Mali', cursive;
+margin-bottom: 5px;
+}
+
+li{
+font-family: 'Mali', cursive;
+margin-top: 0;
+}
+
+ol {
+margin-bottom: 0px;
+}
+
+ul {
+margin-bottom: 0px;
+}
+
+.list {
+margin-top: 0px
+}
+
+.heading {
+color: #1b68b6;
+font-family: 'Amatic SC', cursive;
+font-size: 30px;
+margin-bottom: 0px;
+/* margin-top: 20px; */
+}
+
+.description {
+margin-left: 30px;
+}
+
+.top {
+margin-bottom: 10px;
+}
+
+/* .left {
+float: left;
+width: 600px;
+margin-top: 20px;
+margin-left: 30px;
+}
+
+.right {
+width: 600px;
+margin-left: 30px;
+margin-right: 50px;
+display: inline-block;
+} */
+
+#timing {
+margin-left: 30px;
+color: #bb9a85;
+}
+
+#img-footer {
+margin-top: 0px;
+margin-bottom: 30px;
+}
+
+#notes-margin {
+margin-top: 0px;
+}
+
+.bg-light {
+background-color: #c7c3b5!important;
+}
+
+.container-fluid {
+margin-bottom: 30px;
+}
+
+.other-recipe {
+  margin-left: 20px;
+}
+
+#bread-image img{
+  width: 100%;
+}
+
+@media (min-width: 1800px) {
+  .container {
+    min-width: 1500px;
+  }
+}
