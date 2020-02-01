@@ -88,7 +88,7 @@ $(document).ready(() => {
     let html = '';
     $.each(eventArray, (index, item) => {
         // displays all tickets
-        html += `<li>${item.name} - ${item.description} - All Tickets: ${item.allTickets()}</li>`;
+        html += `<li>${item.name} - ${item.description} - <ul>All Tickets: ${item.allTickets()}</ul></li>`;
     });
     $("#event").html(html);
 
@@ -97,7 +97,7 @@ $(document).ready(() => {
     function renderFilteredEvents(low, high) {
         let html = '';
         $.each(eventArray, (index, item) => {
-            html += `<li>${item.name} - ${item.description} - ${moment(item.eventDate).format('MMMM Do YYYY')} - Eligible tickets: ${item.searchTickets(low, high)}</li>`;     
+            html += `<li>${item.name} - ${item.description} - ${moment(item.eventDate).format('MMMM Do YYYY')} - <ul>Eligible tickets: ${item.searchTickets(low, high)}</ul></li>`;     
         });
         $("#event").html(html);
     }
