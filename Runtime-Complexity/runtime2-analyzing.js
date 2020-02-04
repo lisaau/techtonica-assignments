@@ -11,6 +11,8 @@ Which solution would be fastest for large input sizes?
 // For example, if the input is [5,2,4,5,4], the function should return [5,4] 
 // because those elements are in the array twice.
 
+// For large inputs, findDuplicatesB or findDuplicatesD would be the fastest
+
 const findDuplicatesA = (array) => {
   const duplicated = [];
   for (let i = 0; i < array.length; i++) {
@@ -22,6 +24,7 @@ const findDuplicatesA = (array) => {
   }
   return duplicated;
 }
+// findDuplicatesA iterates over the array with a nested for loop starting from the first element. In the inner loop, it iterates over the rest of the array to see if it matches the element in the outer loop. The runtime complexity is O(n^2).
 
 const findDuplicatesB = (array) => {
   const seen = new Set();
@@ -36,6 +39,8 @@ const findDuplicatesB = (array) => {
   return duplicates;
 }
 
+// findDuplicatesB iterates over the array once and adds the elements to the appropriate Set. The runtime complexity is O(n).
+
 const findDuplicatesC = (array) => {
   array.sort();
   const duplicates = [];
@@ -48,6 +53,8 @@ const findDuplicatesC = (array) => {
   }
   return duplicates;
 }
+
+// findDuplicatesC sorts the array using an array sorting method which is mergesort, O(n log n). Then it iterates over the entire array, O(n). The overall runtime is O(n log n) 
 
 const findDuplicatesD = (array) => {
   const duplicated = [];
@@ -62,10 +69,15 @@ const findDuplicatesD = (array) => {
   return duplicated;
 }
 
+// findDuplicatesD iterates over the entire array and pushes items into the appropriate array. The runtime is O(n).
+
+
 
 // The following 3 functions all count how many times an item is in an array 
 // and return a dictionary of the counts
 // For example, if the input is [5,2,4,5,4,5], the function should return {5:3, 4:2, 2:1} 
+
+// When the imput is large, countOccurencesC has the fastest runtime
 
 const countOccurencesA = (array) => {
   const counts = {};
@@ -83,6 +95,8 @@ const countOccurencesA = (array) => {
   }
   return counts;
 }
+
+// countOccurencesA iterates over an array and sets the element as a key if it's not in counts, then it iterates over the rest of the array through a nested for loop to see if the element appears again. The runtime complexity is O(n^2)
 
 const countOccurencesB = (array) => {
   const counts = {};
@@ -103,6 +117,8 @@ const countOccurencesB = (array) => {
   counts[currentItem] = itemCount;
 }
 
+// countOccurencesB sorts the array O(n log n) and then iterates over the array O(n) to add properties (if the element isn't in counts) or increment the value. The runtime complexity is O(n log n)
+
 const countOccurencesC = (array) => {
   const counts = {};
   for (let i = 0; i < array.length; i++) {
@@ -114,3 +130,5 @@ const countOccurencesC = (array) => {
   }
   return counts;
 }
+
+// countOccurencesC iterates over the array once and adds the element into counts if it's not there, otherwise increments the value. The runtime complexity is O(n)

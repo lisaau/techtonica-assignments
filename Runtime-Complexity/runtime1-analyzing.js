@@ -71,12 +71,14 @@ var mysteryFunction5 = function(array) {
   array.sort();
 }
 
+// mysteryFunction6 is O(n log n) since the sort method uses mergesort
 
 const mysteryFunction6 = function(dict, key) {
   var value = dict[key];
   return value;
 }
 
+// mysteryFunction6 is O(1) since this is finding an index in an array 
 
 const mysteryFunction7 = function(array) {
   // Assume `array` is an array of ints sorted from smallest to biggest
@@ -97,6 +99,7 @@ const mysteryFunction7 = function(array) {
   return false;
 }
 
+// mysteryFunction7 is O(n) since it can go through the entire array
 
 const mysteryFunction8 = function(dictionary) {
   for(var key in dictionary) {
@@ -107,3 +110,5 @@ const mysteryFunction8 = function(dictionary) {
     return false;
   }
 }
+
+// mysteryFunction8 is O(n) since it can iterate over the entire dictionary
