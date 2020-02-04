@@ -8,18 +8,100 @@ If you have time, code one of the functions you thought of to solve the problem.
 Examples: 
 - `[1,4,5,4,2,2,4]` returns `4`
 
+1. O(n^2)
+
+```javascript
+const countOccurences = array => {
+  const counts = [];
+}
+```
+
+2. O(n log n)
+
+```javascript
+
+```
+
+3. O (n)
+
+```javascript
+
+```
+
+
+
 ### Write a function that takes an array of numbers and returns the greatest difference you can get by subtracting any two of those numbers.
 Examples:
 - `[1, 5, 3, 1, 15]` returns `14`
+
+1. O(n^2)
+
+```javascript
+
+```
+
+2. O(n log n)
+
+```javascript
+
+```
+
+3. O (n)
+
+```javascript
+
+```
+
+
 
 ### Find the only element in an array that only occurs once
 Examples:
 - `[3,5,3,4,6,6,4]` returns `5`
 
+1. O(n^2)
+
+```javascript
+
+```
+
+2. O(n log n)
+
+```javascript
+
+```
+
+3. O (n)
+
+```javascript
+
+```
+
+
+
 
 ### Find the common elements of 2 integer arrays
 Examples:
 - `([1,3,2,5], [3,9,8,1])` returns `[1, 3]`
+
+1. O(n^2)
+
+```javascript
+
+```
+
+2. O(n log n)
+
+```javascript
+
+```
+
+3. O (n)
+
+```javascript
+
+```
+
+
 
 
 ### Determine if 2 Strings are anagrams (use the same letters re-arranged)
@@ -28,10 +110,52 @@ Examples:
 - `("at", "tat")`  returns `false`
 - `("cat", "dog")` returns `false`
 
+1. O(n^2)
+
+```javascript
+
+```
+
+2. O(n log n)
+
+```javascript
+
+```
+
+3. O (n)
+
+```javascript
+
+```
+
+
+
 ### Check if a String is composed of all unique characters
 Examples:
 - `"banana"` returns `false`
 - `"bacon"` returns `true`
+
+1. O(n^2)
+
+```javascript
+
+```
+
+2. O(n log n)
+
+```javascript
+
+```
+
+3. O (n)
+
+```javascript
+
+```
+
+
+
+
 
 Sources:
 - https://www.reddit.com/r/cscareerquestions/comments/20ahfq/heres_a_pretty_big_list_of_programming_interview/
