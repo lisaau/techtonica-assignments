@@ -11,9 +11,26 @@ Examples:
 1. O(n^2)
 
 ```javascript
-const countOccurences = array => {
-  const counts = [];
-}
+let most = 1;
+let currentMostFrequent= 0;
+let result;
+
+function mostFrequent(arr) {
+  // iterate over the array
+  for (let i = 0; i < arr.length; i++) {
+    // compare the current element with all other elements in the array. increment count by 1 if the element we're comparing to mathches, otherwise set most to the count of the current value and the result of the current number
+    for (let j = i; j < arr.length; j++) {
+      if (arr[i] === arr[j]) {
+        currentMostFrequent++;
+      }
+      if (most < currentMostFrequent) {
+        most = currentMostFrequent;
+        result = arr[i]
+      }
+    }
+    return result;
+  }
+ }
 ```
 
 2. O(n log n)
@@ -25,7 +42,38 @@ const countOccurences = array => {
 3. O (n)
 
 ```javascript
+function mostFrequent(arr) {
+  if (arr.length === 0) {
+    return null;
+  }
+  
+  // to track counts of each element
+  let modeMap = {};
+  // setting the default to be a count of 1 for the first element
+  let maxElement = arr[0];
+  let maxCount = 1;
 
+  // iterate over array
+  for (let i = 0; i < arr.length; i++) {
+    let elem = arr[i];
+    
+    // if the element is not a key in modeMap, set the value to 1, otherwise increment value by 1
+    if (!modeMap[elem]) {
+      modeMap[elem] = 1;
+    } else {
+      modeMap[elem] += 1;
+    }
+
+    // if at this element the value is greater than the maxCount of the most frequently occuring number, set the maxElement to the current element, elem. Then set maxCount to the value in the map (the count of this element)
+    if (modeMap[elem] > maxCount) {
+      maxElement = elem;
+      maxCount = modeMap[elem];
+    }
+  }
+  
+  // return the element with the highest count
+  return maxElement;
+}
 ```
 
 
