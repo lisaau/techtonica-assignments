@@ -11,7 +11,6 @@ class Parrot {
 class ApprenticeParrot extends Parrot {
     constructor(name) {
         super(name);
-        
         this.counter = 0;
     }
     
@@ -25,6 +24,5 @@ class ApprenticeParrot extends Parrot {
         }
     }
 }
-
 
 module.exports = {Parrot, ApprenticeParrot}

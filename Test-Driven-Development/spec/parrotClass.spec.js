@@ -40,11 +40,6 @@ describe("The ApprenticeParrot class", () => {
         it("has the name that's the same as the parameter", () => {
             expect(a.name).toEqual("Bilbo");
         });
-
-        it("has the name 'A nameless apprentice' if no arguments passed in", () => {
-            b = new ApprenticeParrot();
-            expect(b.name).toEqual("A nameless apprentice");
-        })
     });
 
     describe("speak", () => {
