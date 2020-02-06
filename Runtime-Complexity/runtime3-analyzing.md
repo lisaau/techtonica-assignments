@@ -85,7 +85,11 @@ Examples:
 1. O(n^2)
 
 ```javascript
+Find the greatest number in the array by using reduce array method.
 
+Find the lowest number in the array by using reduce array method.
+
+Find the difference between the two numbers
 ```
 
 2. O(n log n)
@@ -134,7 +138,7 @@ Examples:
 1. O(n^2)
 
 ```javascript
-
+Use a nested for loop. Check if an element in the first array is in the second array, if so, push into a resulting array
 ```
 
 2. O(n log n)

@@ -17,7 +17,7 @@ const mysteryFunction0 = function(array) {
   return false;
 }
 
-// mysteryFunction0 is O(1) because it will always return the value of the array at index 7
+// mysteryFunction0 is O(n) because it iterates over the entire array
 
 const mysteryFunction1 = function(array) {
   index = 4;
@@ -71,7 +71,7 @@ var mysteryFunction5 = function(array) {
   array.sort();
 }
 
-// mysteryFunction6 is O(n log n) since the sort method uses mergesort
+// mysteryFunction6 is O(n log n) since the sort method uses mergesort, O(n^2) if it's bubblesort
 
 const mysteryFunction6 = function(dict, key) {
   var value = dict[key];
