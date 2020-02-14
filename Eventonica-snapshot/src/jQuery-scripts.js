@@ -88,7 +88,8 @@ const eventRecommender = new EventRecommender();
         event.preventDefault();
         
         let keyword = $("#tm-event-keyword").val();
-
+        let category = $("#tm-event-category").val();
+        
         // fetch syntax
         let requestOptions = {
             method: 'GET',
@@ -96,7 +97,7 @@ const eventRecommender = new EventRecommender();
         };
         
         // fetches event in the US by keyword and displays one event (size = 1). Converts to json and extract event array. Get name, date, category, and location (since there is no description). 
-        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&size=1&keyword=${keyword}`, requestOptions)
+        fetch(`https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US&apikey=7elxdku9GGG5k8j0Xm8KWdANDgecHMV0&size=1&keyword=${keyword}&segmentName=${category}`, requestOptions)
         .then(response => response.json())
         .then(result => result._embedded.events)
         .then(events => {

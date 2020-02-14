@@ -31,6 +31,7 @@ h4, p, li {
     padding-left: 15%;
 }
 
+button,
 input[type=submit] {
     background-color: #0C7BC1;
     color: white;
@@ -58,3 +59,35 @@ img {
 .col {
     background-color: #f8f9fa;
 }
+
+ .form-inline {  
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+  }
+  
+  .form-inline label {
+    margin: 5px 10px 5px 0;
+  }
+  
+  .form-inline input{
+    vertical-align: middle;
+    margin: 5px 10px 5px 0;
+    border: 1px solid #ddd;
+  }
+   
+  .form-inline input[type=submit]{
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  @media (max-width: 800px) {
+    .form-inline input {
+      margin: 10px 0;
+    }
+    
+    .form-inline {
+      flex-direction: column;
+      align-items: stretch;
+    }
+  }

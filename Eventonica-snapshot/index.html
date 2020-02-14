@@ -150,13 +150,22 @@
             <div class="row">
                 <div class="col">
                     <h3>Search Events by Keyword</h3>
-                    <form id="event-search" action="#event-search">
-                        <label>Event keyword:</label>
-                        <br>
-                        <input type="text" placeholder="Keyword" id="tm-event-keyword" aria-label="Ticketmaster-event-keyword">
-                        <br/>
-                        <input type="submit" id="event-keyword-submit" value="Search">
-                    </form>
+                        <form class="form-inline" id="event-search" action="#event-search">
+                                <label>Event keyword:</label>
+                                <br>
+                                <input type="text" placeholder="Keyword" id="tm-event-keyword" aria-label="Ticketmaster-event-keyword">                        
+                                <br>
+                                
+                                <label for="tm-event-category">Event category:</label>
+                                <br>
+                                <select id="tm-event-category">
+                                    <option value=''>Please select a category</option>
+                                    <option value="arts & theatre">Arts & Theatre</option>
+                                    <option value="music">Music</option>
+                                    <option value="sports">Sports</option>
+                                </select>
+                                <input type="submit" id="event-keyword-submit" value="Search">
+                            </form>
                     <h4>Results:</h4>
                     <ul id="event-search-result">
                         <!-- Use jQuery to add search results here-->
