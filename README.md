@@ -9,5 +9,5 @@ Projects are added to separate GitHub repos and can be found below:
 - [Recipe Page](https://github.com/lisaau/recipe-page)
 - [Portfolio Website Assignment](https://github.com/lisaau/portfolio-website-assignment)
 - [Guess My Number Game](https://github.com/lisaau/Guess-My-Number)
-- [Eventonica](https://github.com/lisaau/Eventonica)
+- [Eventonica](https://github.com/lisaau/Eventonica), [Eventonica with API](https://github.com/lisaau/Eventonica-API)
 
