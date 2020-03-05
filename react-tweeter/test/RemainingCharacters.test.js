@@ -1,6 +1,11 @@
 import RemainingCharacters from '../src/RemainingCharacters.js';
 
 describe('<RemainingCharacters /> rendering', () => {
+    it('renders', () => {
+        let wrapper = shallow(<RemainingCharacters />);
+        expect(wrapper.exists()).toBe(true);
+    });
+
     it('should render one <p>', () => {
         let wrapper = mount(<RemainingCharacters />);
         expect(wrapper.children('p')).toHaveLength(1);

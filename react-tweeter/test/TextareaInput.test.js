@@ -1,6 +1,11 @@
 import TextareaInput from '../src/TextareaInput';
 
 describe('<TextareaInput /> rendering', () => {
+    it('renders', () => {
+        let wrapper = shallow(<TextareaInput newPost='test post' setNewPost={jest.fn()} setNewPost={jest.fn()} />);
+        expect(wrapper.exists()).toBe(true);
+    });
+
     it('should render one <label>', () => {
         let wrapper = shallow(<TextareaInput newPost='test post' setNewPost={jest.fn()} setNewPost={jest.fn()}/>);
             expect(wrapper.find('label')).toHaveLength(1);

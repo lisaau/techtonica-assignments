@@ -9,6 +9,11 @@ const users = {
 }
 
 describe('<Dropdown /> rendering', () => {
+    it('renders', () => {
+        let wrapper = shallow(<Dropdown user='user1' users={users} setUser={jest.fn()}/>);
+        expect(wrapper.exists()).toBe(true);
+    });
+
     it('should render one <select>', () => {
     let wrapper = mount(<Dropdown user='user1' users={users} setUser={jest.fn()}/>);
         expect(wrapper.find('select')).toHaveLength(1);

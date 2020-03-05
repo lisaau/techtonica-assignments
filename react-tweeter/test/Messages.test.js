@@ -19,6 +19,11 @@ function createTestMessage(message) {
 }
 
 describe('<Messages /> rendering', () => {
+    // it('renders', () => {
+    //     let wrapper = shallow(<Messages />);
+    //     expect(wrapper.exists()).toBe(true);
+    // });
+
     it('should render one <div> if no messages', () => {
         let props = createTestProps();
         let wrapper = mount(<Messages {...props}/>);
