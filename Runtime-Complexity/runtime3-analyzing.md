@@ -95,13 +95,18 @@ Find the difference between the two numbers
 2. O(n log n)
 
 ```javascript
-
+sort(array)
+return array[array.length -1] - array[0]
 ```
 
 3. O (n)
 
 ```javascript
-
+set max and min to the first element in the array
+iterate over array and compare min and max
+if num > max set max to num
+if num < min set min to num
+find diff btwn max and min
 ```
 
 
