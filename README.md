@@ -4,6 +4,8 @@ Deliverables for the Techtonica assignments from the [curriculum](https://github
 
 Assignments that ask students to complete in REPL can be found [here](https://repl.it/@lisaau).
 
+To view the files locally on your machine, clone this repo. Look at the README.md files for each directory and follow the instructions in there to access the assignment.
+
 
 
 Projects are added to separate GitHub repos and can be found below:

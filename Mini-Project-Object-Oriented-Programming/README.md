@@ -4,3 +4,6 @@ Use JS object-oriented programming to create "Event" class allows the event host
 
 Assignment prompt can be found in Techtonica's [Mini Project: Object Oriented Programming in JS](https://github.com/Techtonica/curriculum/blob/master/javascript/first-js-oop-project.md).
 
+
+
+Open the index.html in the browser to view.
