@@ -1,9 +1,10 @@
 import React from 'react';
 import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import * as ImagePicker from 'expo-image-picker'
-import console = require('console');
 
 export default function App() {
+  let [selectedImage, setSelectedImage] = React.useState(null);
+
   // Request permissions to access the "camera roll", then launch the picker and log the result.
   let openImagePickerAsync = async () => {
     let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
@@ -14,7 +15,23 @@ export default function App() {
     }
 
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    if (pickerResult.cancelled === true) {
+      return;
+    }
+
+    setSelectedImage({ localUri: pickerResult.uri});
     console.log(pickerResult)
+  };
+
+  if (selectedImage !== null) {
+    return (
+      <View style={styles.container}>
+        <Image
+          source={{ uri: selectedImage.localUri }}
+          style={styles.thumbnail}
+        />
+      </View>
+    )
   }
 
   return (
@@ -60,4 +77,9 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: '#fff',
   }, 
+  thumbnail: {
+    width: 300,
+    height: 300,
+    resizeMode: "contain"
+  }
 });
