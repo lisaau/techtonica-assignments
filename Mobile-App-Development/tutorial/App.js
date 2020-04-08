@@ -1,17 +1,17 @@
 import React from 'react';
-import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import * as ImagePicker from 'expo-image-picker'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import * as ImagePicker from 'expo-image-picker';
 
 export default function App() {
-  let [selectedImage, setSelectedImage] = React.useState(null);
+    let [selectedImage, setSelectedImage] = React.useState(null);
 
-  // Request permissions to access the "camera roll", then launch the picker and log the result.
-  let openImagePickerAsync = async () => {
-    let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+    // Request permissions to access the "camera roll", then launch the picker and log the result.
+    let openImagePickerAsync = async () => {
+        let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
 
     if (permissionResult.granted === false) {
-      alert("Permission to access camera roll is required!");
-      return;
+        alert('Permission to access camera roll is required!');
+        return;
     }
 
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
@@ -19,36 +19,38 @@ export default function App() {
       return;
     }
 
-    setSelectedImage({ localUri: pickerResult.uri});
+    setSelectedImage({ localUri: pickerResult.uri });
     console.log(pickerResult)
   };
 
-  if (selectedImage !== null) {
+    if (selectedImage !== null) {
+      return (
+          <View style={styles.container}>
+          <Image 
+              source={{ uri: selectedImage.localUri }} 
+              style={styles.thumbnail} />
+          </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
-        <Image
-          source={{ uri: selectedImage.localUri }}
-          style={styles.thumbnail}
+        <Image 
+          source={{ uri: 'https://i.imgur.com/TkIrScD.png' }} 
+          style={styles.logo} 
         />
-      </View>
-    )
-  }
-
-  return (
-    <View style={styles.container}>
-      <Image source={{ uri: "https://i.imgur.com/TkIrScD.png" }} style={styles.logo} /> 
-
-      <Text style={styles.instructions}>
+        <Text style={styles.instructions}>
         To share a photo from your phone with a friend, just press the button below!
-      </Text>
+        </Text>
 
-      <TouchableOpacity
-        onPress={() => {openImagePickerAsync}}
-        style={styles.button}>
+        <TouchableOpacity 
+            onPress={openImagePickerAsync} 
+            style={styles.button}
+        >
         <Text style={styles.buttonText}>Pick a photo</Text>
-      </TouchableOpacity>
-    </View>
-  );
+        </TouchableOpacity>
+      </View>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -61,25 +63,26 @@ const styles = StyleSheet.create({
   logo: {
     width: 305,
     height: 159,
-    marginBottom: 10,
+    marginBottom: 20,
   },
   instructions: {
     color: '#888',
     fontSize: 18,
     marginHorizontal: 15,
-  }, 
+    marginBottom: 10,
+  },
   button: {
-    backgroundColor: "blue",
+    backgroundColor: 'blue',
     padding: 20,
     borderRadius: 5,
   },
   buttonText: {
     fontSize: 20,
     color: '#fff',
-  }, 
+  },
   thumbnail: {
     width: 300,
     height: 300,
-    resizeMode: "contain"
-  }
+    resizeMode: 'contain',
+  },
 });
