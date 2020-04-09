@@ -2,6 +2,8 @@
 
 Notes and demo/exercise for [Techtonica's mobile app development topic outline](https://github.com/Techtonica/curriculum/blob/master/mobile-development/mobile-development.md).
 
+![screens](/assets/screens.png)
+
 ### How to view tutorial:
 
 #### Set up
