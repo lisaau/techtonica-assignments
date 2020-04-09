@@ -1,36 +1,42 @@
 import React from 'react';
-import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import * as ImagePicker from 'expo-image-picker';
-import * as Sharing from 'expo-sharing'
+import * as Sharing from 'expo-sharing';
+import uploadToAnonymousFilesAsync from 'anonymous-files'; // handle uploading the file for us
 
 export default function App() {
   let [selectedImage, setSelectedImage] = React.useState(null);
 
   // Request permissions to access the "camera roll", then launch the picker and log the result.
   let openImagePickerAsync = async () => {
-      let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
+    let permissionResult = await ImagePicker.requestCameraRollPermissionsAsync();
 
-  if (permissionResult.granted === false) {
-      alert('Permission to access camera roll is required!');
+    if (permissionResult.granted === false) {
+        alert('Permission to access camera roll is required!');
+        return;
+    }
+
+    let pickerResult = await ImagePicker.launchImageLibraryAsync();
+    if (pickerResult.cancelled === true) {
       return;
-  }
+    }
 
-  let pickerResult = await ImagePicker.launchImageLibraryAsync();
-  if (pickerResult.cancelled === true) {
-    return;
-  }
-
-  setSelectedImage({ localUri: pickerResult.uri });
-  console.log(pickerResult)
+    if (Platform.OS === 'web') {
+      let remoteUri = await uploadToAnonymousFilesAsync(pickerResult.uri);
+      setSelectedImage({ localUri: pickerResult.uri, remoteUri });
+    } else {
+      setSelectedImage({ localUri: pickerResult.uri, remoteUri: null });
+    } 
   };
 
   let openShareDialogAsync = async () => {
     if (!(await Sharing.isAvailableAsync())) {
-      alert(`Uh oh, sharing isn't available on your platform`);
+      // alert(`Uh oh, sharing isn't available on your platform`);
+      alert(`The image is available for sharing at: ${selectedImage.remoteUri}`);
       return;
     }
 
-    Sharing.shareAsync(selectedImage.localUri);
+    Sharing.shareAsync(selectedImage.remoteUri || selectedImage.localUri);
   };
 
   if (selectedImage !== null) {
@@ -53,14 +59,14 @@ export default function App() {
         style={styles.logo} 
       />
       <Text style={styles.instructions}>
-      To share a photo from your phone with a friend, just press the button below!
+        To share a photo from your phone with a friend, just press the button below!
       </Text>
 
       <TouchableOpacity 
           onPress={openImagePickerAsync} 
           style={styles.button}
       >
-      <Text style={styles.buttonText}>Pick a photo</Text>
+        <Text style={styles.buttonText}>Pick a photo</Text>
       </TouchableOpacity>
     </View>
   );
