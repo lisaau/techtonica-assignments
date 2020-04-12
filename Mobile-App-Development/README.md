@@ -6,7 +6,13 @@ Notes and demo/exercise for [Techtonica's mobile app development topic outline](
 
 ### How to view tutorial:
 
-#### Set up
+View the app at https://expo.io/@lisaau/expo-tutorial. Make sure to install [Expo Client App](https://expo.io/tools#client) on iOS/Android. 
+
+
+
+#### Running the tutorial on your local machine:
+
+**Set up**:
 
 1. Make sure you have Expo installed on your machine
 
@@ -16,7 +22,7 @@ Notes and demo/exercise for [Techtonica's mobile app development topic outline](
 
 3. [Download the recommended version of Node.js](https://nodejs.org/en/)
 
-#### Running the tutorial
+**Run the app**:
 
 1. Switch to the tutorial directory by running `cd tutorial`
 2. Run `npm install` to install dependencies
