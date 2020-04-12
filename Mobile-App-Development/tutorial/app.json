@@ -1,7 +1,8 @@
 {
   "expo": {
-    "name": "tutorial",
-    "slug": "tutorial",
+    "name": "expo-tutorial",
+    "slug": "expo-tutorial",
+    "description": "Expo's tutorial https://docs.expo.io/versions/v37.0.0/tutorial/planning/",
     "platforms": [
       "ios",
       "android",
